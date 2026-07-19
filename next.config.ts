@@ -10,12 +10,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Enable typescript and eslint strict checks on build
+  // Enable typescript strict checks on build
   typescript: {
     ignoreBuildErrors: false,
-  },
-  eslint: {
-    ignoreDuringBuilds: false,
   }
 };
 
