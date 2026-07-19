@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Download, Mail, MapPin, Briefcase, Award, Code, GraduationCap, ArrowRight } from "lucide-react";
-import { motion } from "react-transition-group"; // We can also use simple Tailwind classes & Framer Motion if needed. Let's use Framer Motion as it is already installed.
-import { motion as motionFramer } from "framer-motion";
+import { Download, MapPin, Award, Code, GraduationCap, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 import { mockProfile, Profile } from "@/lib/mockData";
 import { db } from "@/lib/db";
 
@@ -29,7 +29,7 @@ export default function Hero() {
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 items-stretch">
         
         {/* LEFT COLUMN: Resume-style structured details sheet (7 cols on large, 5 cols photo on right) */}
-        <motionFramer.div
+        <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -132,10 +132,10 @@ export default function Hero() {
             </Link>
           </div>
 
-        </motionFramer.div>
+        </motion.div>
 
         {/* RIGHT COLUMN: Full-height spotlight portrait cover frame (5 cols on large) */}
-        <motionFramer.div
+        <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -145,10 +145,12 @@ export default function Hero() {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 pointer-events-none" />
           
           {/* User's profile photo - cropped dynamically using CSS object-position to showcase the spotlight suit portrait */}
-          <img
+          <Image
             src="/images/profile.jpg"
             alt="Shanmugapriyan Portrait"
-            className="w-full h-full object-cover object-top absolute inset-0 select-none pointer-events-none transition-transform duration-700 hover:scale-[1.03]"
+            fill
+            className="object-cover object-top select-none pointer-events-none transition-transform duration-700 hover:scale-[1.03]"
+            priority
           />
 
           {/* Corner glow decorative tags */}
@@ -156,7 +158,7 @@ export default function Hero() {
             <span className="text-[9px] font-bold text-primary uppercase tracking-widest block">AI ENGINEER</span>
             <span className="text-xs font-bold text-white mt-0.5 block">Shanmugapriyan</span>
           </div>
-        </motionFramer.div>
+        </motion.div>
 
       </div>
 

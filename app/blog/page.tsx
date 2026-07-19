@@ -4,7 +4,7 @@ import React, { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { Search, ChevronLeft, Eye, Heart, BookOpen, Calendar, Tag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { mockBlogs, Blog } from "@/lib/mockData";
+import { mockBlogs } from "@/lib/mockData";
 import { db } from "@/lib/db";
 import { formatDate } from "@/lib/utils";
 

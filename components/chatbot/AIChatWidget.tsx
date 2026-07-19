@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { MessageSquare, X, Send, Sparkles, User, Brain, AlertCircle } from "lucide-react";
+import { MessageSquare, X, Send, Sparkles, Brain } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { mockSkills, mockProjects, mockExperience, mockProfile } from "@/lib/mockData";
+import { mockSkills, mockProfile } from "@/lib/mockData";
 
 interface Message {
   sender: "user" | "bot";
@@ -45,11 +45,10 @@ export default function AIChatWidget() {
 
     if (text.includes("skill") || text.includes("language") || text.includes("stack") || text.includes("technology") || text.includes("tool")) {
       const list = mockSkills.map((s) => s.name).slice(0, 8).join(", ");
-      return `Shanmugapriyan is highly proficient in Python (PyTorch, TensorFlow), Power BI (DAX, ETL modeling), and Frontend engineering (Next.js, React 19, TypeScript, Tailwind). His core stack also includes PostgreSQL, Supabase, AWS, and Docker.`;
+      return `Shanmugapriyan is highly proficient in ${list}, and specializes in AI, Machine Learning, Power BI dashboards, and Frontend engineering. His core stack also includes PostgreSQL, Supabase, AWS, and Docker.`;
     }
 
     if (text.includes("project") || text.includes("portfolio") || text.includes("work")) {
-      const titles = mockProjects.map((p) => p.title).join(", ");
       return `He has completed over 10 systems, including:
 1. **AI Disease Analyzer** (Chest X-ray diagnostic model)
 2. **Fake News Detection** (NLP text credibility voting classifier)

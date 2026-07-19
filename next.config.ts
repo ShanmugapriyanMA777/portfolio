@@ -10,12 +10,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Disable typescript and eslint strict checks on build to prevent build failures during rapid prototypes
+  // Enable typescript and eslint strict checks on build
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false,
   }
 };
 

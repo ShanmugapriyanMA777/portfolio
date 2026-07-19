@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Search, ChevronRight } from "lucide-react";
@@ -11,7 +11,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const pathname = usePathname();
-  let lastScrollY = 0;
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,12 +25,12 @@ export default function Navbar() {
       }
 
       // Auto-hide/show navbar on scroll direction changes
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
         setVisible(false); // Scrolling down
       } else {
         setVisible(true); // Scrolling up
       }
-      lastScrollY = currentScrollY;
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -186,7 +186,7 @@ export default function Navbar() {
               }}
               className="mt-2 w-full text-center bg-gradient-to-r from-primary to-secondary text-white text-sm font-semibold py-3 rounded-xl shadow-premium block cursor-pointer"
             >
-              Let's Connect
+              Let&apos;s Connect
             </Link>
           </motion.div>
         )}

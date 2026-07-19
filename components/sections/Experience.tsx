@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Briefcase, ArrowUpRight, GraduationCap } from "lucide-react";
+import { Briefcase, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
 import { Experience, Education } from "@/lib/mockData";
 import { db } from "@/lib/db";
@@ -18,7 +18,6 @@ const getExperienceTags = (company: string) => {
 export default function ExperienceSection() {
   const [experiences, setExperiences] = useState<Experience[]>([]);
   const [educations, setEducations] = useState<Education[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadTimelineData() {
@@ -31,8 +30,6 @@ export default function ExperienceSection() {
         setEducations(eduData);
       } catch (err) {
         console.error("Error loading timeline data:", err);
-      } finally {
-        setLoading(false);
       }
     }
     loadTimelineData();

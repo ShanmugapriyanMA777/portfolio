@@ -2,9 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Download, QrCode, FileText, ChevronLeft, Calendar, FileCheck, Eye, TrendingUp } from "lucide-react";
+import { Download, QrCode, FileText, ChevronLeft, Eye, TrendingUp } from "lucide-react";
 import QRCode from "qrcode";
-import { motion } from "framer-motion";
 import { mockProfile } from "@/lib/mockData";
 import { db } from "@/lib/db";
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip } from "recharts";
@@ -12,8 +11,7 @@ import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip } from "rec
 export default function ResumePage() {
   const [qrCodeUrl, setQrCodeUrl] = useState("");
   const [downloadCount, setDownloadCount] = useState(142);
-  const [viewCount, setViewCount] = useState(384);
-  const [isDownloaded, setIsDownloaded] = useState(false);
+  const [viewCount] = useState(384);
 
   // Generate QR Code dynamically
   useEffect(() => {
@@ -32,7 +30,6 @@ export default function ResumePage() {
   }, []);
 
   const handleDownload = () => {
-    setIsDownloaded(true);
     setDownloadCount((prev) => prev + 1);
     db.trackDownload("Resume", "Shanmugapriyan_CV.pdf");
   };
@@ -230,6 +227,7 @@ export default function ResumePage() {
               
               <div className="p-3 bg-white rounded-2xl w-[150px] h-[150px] mx-auto flex items-center justify-center border border-white/10 shadow-premium">
                 {qrCodeUrl ? (
+                  /* eslint-disable-next-line @next/next/no-img-element */
                   <img src={qrCodeUrl} alt="Resume QR Link" className="w-full h-full" />
                 ) : (
                   <QrCode className="w-12 h-12 text-black animate-pulse" />

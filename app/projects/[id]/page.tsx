@@ -3,10 +3,9 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { ChevronLeft, Globe, Eye, Heart, Download, Calendar, Briefcase, Award, CheckCircle, Lightbulb } from "lucide-react";
+import { ChevronLeft, Globe, Eye, Heart, Calendar, Briefcase, Award, CheckCircle } from "lucide-react";
 import { db } from "@/lib/db";
 import { Project } from "@/lib/mockData";
-import { motion } from "framer-motion";
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip } from "recharts";
 
 export default function ProjectDetailsPage() {

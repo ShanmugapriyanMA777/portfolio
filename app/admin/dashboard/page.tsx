@@ -2,10 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ShieldCheck, Plus, Trash2, Edit2, LogOut, Download, FileText, Code, Database, Users, LineChart, MessageSquare, PlusCircle } from "lucide-react";
-import { motion } from "framer-motion";
+import { ShieldCheck, Trash2, Edit2, LogOut, Download, Code, Database, LineChart, MessageSquare, PlusCircle } from "lucide-react";
 import { mockProjects, mockSkills, Project, Skill } from "@/lib/mockData";
-import { db } from "@/lib/db";
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 
 export default function AdminDashboardPage() {
@@ -15,7 +13,7 @@ export default function AdminDashboardPage() {
   // Local state to simulate database edits during current session
   const [projects, setProjects] = useState<Project[]>(mockProjects);
   const [skills, setSkills] = useState<Skill[]>(mockSkills);
-  const [messages, setMessages] = useState([
+  const [messages] = useState([
     { id: "1", name: "John Doe", email: "john@google.com", subject: "ML Diagnostic Consulting", message: "We would like to hire you to consult on building symptom classifiers.", created_at: "2026-06-25T10:00:00Z" },
     { id: "2", name: "Sarah Connor", email: "sarah@skynet.net", subject: "Full Stack Automation", message: "Need a real-time next-generation booking queue platform configured.", created_at: "2026-06-26T12:00:00Z" },
   ]);
@@ -156,7 +154,7 @@ export default function AdminDashboardPage() {
           ].map((tab) => (
             <button suppressHydrationWarning
               key={tab.id}
-              onClick={() => setActiveTab(tab.id as any)}
+              onClick={() => setActiveTab(tab.id as typeof activeTab)}
               className={`w-full text-left px-4 py-3 rounded-xl text-xs font-bold flex items-center gap-3.5 border transition-all cursor-pointer ${
                 activeTab === tab.id
                   ? "bg-primary/10 border-primary text-primary shadow-glow-primary/5"

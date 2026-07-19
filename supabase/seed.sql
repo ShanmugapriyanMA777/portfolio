@@ -9,22 +9,22 @@ VALUES (
     'Elite software engineer and AI researcher specialized in building intelligent systems, full-stack platforms, and data-driven business intelligence dashboards. Experienced in bridging the gap between deep mathematical ML models and highly aesthetic, responsive user experiences.',
     '/images/profile.jpg',
     '/resume.pdf',
-    'shanmugapriyan.dev@gmail.com',
+    'mashanmugapriyan777@gmail.com',
     '+91 98765 43210',
     'Tamil Nadu, India',
     'https://wa.me/919876543210',
     'https://calendly.com/shanmugapriyan',
-    'shanmugapriyan-dev',
+    'ShanmugapriyanMA777',
     'shanmugapriyan_leetcode'
 ) ON CONFLICT (id) DO NOTHING;
 
 -- 2. Social Links Seed
 INSERT INTO public.social_links (platform, url, icon, display_order) VALUES
-('GitHub', 'https://github.com/shanmugapriyan-dev', 'github', 1),
-('LinkedIn', 'https://linkedin.com/in/shanmugapriyan', 'linkedin', 2),
+('GitHub', 'https://github.com/ShanmugapriyanMA777', 'github', 1),
+('LinkedIn', 'https://www.linkedin.com/in/shanmuga-priyan-m-a-b53889321', 'linkedin', 2),
 ('LeetCode', 'https://leetcode.com/shanmugapriyan_leetcode', 'code', 3),
 ('Twitter', 'https://twitter.com/shanmugapriyan', 'twitter', 4),
-('Email', 'mailto:shanmugapriyan.dev@gmail.com', 'mail', 5)
+('Email', 'mailto:mashanmugapriyan777@gmail.com', 'mail', 5)
 ON CONFLICT DO NOTHING;
 
 -- 3. Skills Seed
@@ -71,7 +71,7 @@ VALUES
     '4 Months',
     'Jan 2025 - Apr 2025',
     'Completed',
-    'https://github.com/shanmugapriyan-dev/ai-disease-analyzer',
+    'https://github.com/ShanmugapriyanMA777/ai-disease-analyzer',
     'https://ai-disease-analyzer.vercel.app',
     1
 ),
@@ -89,7 +89,7 @@ VALUES
     '3 Months',
     'Sep 2024 - Nov 2024',
     'Completed',
-    'https://github.com/shanmugapriyan-dev/fake-news-detector',
+    'https://github.com/ShanmugapriyanMA777/fake-news-detector',
     'https://news-verifier.vercel.app',
     2
 ),
@@ -107,7 +107,7 @@ VALUES
     'Ongoing',
     'Aug 2024 - Present',
     'Active',
-    'https://github.com/shanmugapriyan-dev/powerbi-dashboards',
+    'https://github.com/ShanmugapriyanMA777/powerbi-dashboards',
     'https://app.powerbi.com/view?r=mock',
     3
 ),
@@ -125,7 +125,7 @@ VALUES
     '5 Months',
     'Feb 2024 - Jun 2024',
     'Completed',
-    'https://github.com/shanmugapriyan-dev/smart-attendance',
+    'https://github.com/ShanmugapriyanMA777/smart-attendance',
     'https://smart-attend.vercel.app',
     4
 ) ON CONFLICT (id) DO NOTHING;

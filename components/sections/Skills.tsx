@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useEffect } from "react";
-import { Search, Brain, BarChart, Code, ShieldCheck, Cpu } from "lucide-react";
+import { Search, Brain, BarChart, Code, Cpu } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Skill } from "@/lib/mockData";
 import { db } from "@/lib/db";
@@ -25,7 +25,6 @@ export default function Skills() {
   const [skills, setSkills] = useState<Skill[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadSkills() {
@@ -34,8 +33,6 @@ export default function Skills() {
         setSkills(data);
       } catch (err) {
         console.error("Error loading skills:", err);
-      } finally {
-        setLoading(false);
       }
     }
     loadSkills();
@@ -88,7 +85,7 @@ export default function Skills() {
             <h3 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-4">Competency Map</h3>
             <div className="w-full h-full max-h-[240px]">
               <ResponsiveContainer width="100%" height="100%">
-                <RadarChart cx="50%" cy="50%" radius="70%" data={chartData}>
+                <RadarChart cx="50%" cy="50%" outerRadius="70%" data={chartData}>
                   <PolarGrid stroke="rgba(255,255,255,0.06)" />
                   <PolarAngleAxis dataKey="subject" stroke="#a1a1aa" fontSize={11} />
                   <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} stroke="rgba(255,255,255,0.1)" />

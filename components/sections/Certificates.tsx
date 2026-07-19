@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo, useEffect } from "react";
-import { Search, Award, ExternalLink, Download, X, ZoomIn, Eye } from "lucide-react";
+import { Search, Award, ExternalLink, Download, X, Eye } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Certificate } from "@/lib/mockData";
 import { db } from "@/lib/db";
@@ -12,7 +12,6 @@ export default function Certificates() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [activeCertificate, setActiveCertificate] = useState<Certificate | null>(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadCertificates() {
@@ -21,14 +20,12 @@ export default function Certificates() {
         setCertificates(data);
       } catch (err) {
         console.error("Error loading certificates:", err);
-      } finally {
-        setLoading(false);
       }
     }
     loadCertificates();
   }, []);
 
-  const categories = ["All", "AI & Machine Learning", "Cloud & DevOps", "Power BI", "Data Science"];
+  const categories = ["All", "AI & Machine Learning", "Generative AI", "Data Science", "Cloud & DevOps", "Software Engineering"];
 
   const filteredCertificates = useMemo(() => {
     return certificates.filter((cert) => {
@@ -101,6 +98,7 @@ export default function Certificates() {
                 {/* Visual Thumbnail */}
                 <div className="relative h-[150px] bg-gradient-to-br from-black/90 to-[#121217] flex items-center justify-center border-b border-white/5 overflow-hidden">
                   {cert.thumbnail_url ? (
+                    /* eslint-disable-next-line @next/next/no-img-element */
                     <img
                       src={cert.thumbnail_url}
                       alt={cert.title}
@@ -184,6 +182,7 @@ export default function Certificates() {
                 {/* Modal Visual Block */}
                 <div className="relative h-[280px] w-full bg-gradient-to-tr from-[#0b0c10] to-[#1a1c23] flex items-center justify-center border-b border-white/5 overflow-hidden">
                   {activeCertificate.thumbnail_url ? (
+                    /* eslint-disable-next-line @next/next/no-img-element */
                     <img
                       src={activeCertificate.thumbnail_url}
                       alt={activeCertificate.title}

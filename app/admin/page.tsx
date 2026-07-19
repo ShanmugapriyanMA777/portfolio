@@ -30,8 +30,8 @@ export default function AdminLoginPage() {
         } else {
           router.push("/admin/dashboard");
         }
-      } catch (err: any) {
-        setError(err.message || "An authentication error occurred.");
+      } catch (err) {
+        setError((err as Error).message || "An authentication error occurred.");
       } finally {
         setLoading(false);
       }

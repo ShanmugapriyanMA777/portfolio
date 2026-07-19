@@ -52,7 +52,7 @@ export default function Contact() {
       } else {
         setSubmitStatus("error");
       }
-    } catch (err) {
+    } catch {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -68,7 +68,7 @@ export default function Contact() {
           <div>
             <h2 className="text-xs font-bold text-primary uppercase tracking-widest mb-3">Get In Touch</h2>
             <p className="text-3xl sm:text-4xl font-heading font-extrabold text-white">
-              Let's Co-create Innovation
+              Let&apos;s Co-create Innovation
             </p>
             <p className="text-xs text-gray-400 leading-relaxed mt-4">
               Have a pipeline that needs optimization, a dataset requiring modeling, or a platform seeking premium UI designs? Shoot a message below or check out direct portals.

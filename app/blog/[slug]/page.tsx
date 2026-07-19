@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { ChevronLeft, Eye, Heart, BookOpen, Calendar, Tag, Share2 } from "lucide-react";
+import { ChevronLeft, Eye, Heart, BookOpen, Calendar, Share2 } from "lucide-react";
 import { db } from "@/lib/db";
 import { Blog } from "@/lib/mockData";
 import { formatDate } from "@/lib/utils";

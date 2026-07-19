@@ -63,11 +63,14 @@ export const db = {
           .select('*, project_images(image_url, is_hero), project_videos(video_url)')
           .order('display_order', { ascending: true });
         if (!error && data) {
-          return data.map((p: any) => ({
-            ...p,
-            images: p.project_images || [],
-            videos: p.project_videos || [],
-          })) as mock.Project[];
+          return data.map((p) => {
+            const project = p as Record<string, unknown>;
+            return {
+              ...project,
+              images: (project.project_images as Record<string, unknown>[]) || [],
+              videos: (project.project_videos as Record<string, unknown>[]) || [],
+            };
+          }) as unknown as mock.Project[];
         }
         console.warn('Supabase projects query failed, using mock:', error);
       } catch (err) {
@@ -228,9 +231,9 @@ export const db = {
           .insert([{ name, email, subject, message }]);
         if (!error) return { success: true };
         console.warn('Supabase message insert failed, simulating success:', error);
-      } catch (err: any) {
+      } catch (err) {
         console.error(err);
-        return { success: false, error: err.message };
+        return { success: false, error: (err as Error).message };
       }
     }
     await delay(1000); // Simulate network roundtrip
@@ -244,7 +247,7 @@ export const db = {
         await supabase
           .from('visitor_logs')
           .insert([{ page_path: pagePath, country, city, user_agent: userAgent }]);
-      } catch (err) {
+      } catch {
         // Silently capture error
       }
     }
@@ -256,7 +259,7 @@ export const db = {
         await supabase
           .from('downloads')
           .insert([{ file_type: fileType, file_name: fileName }]);
-      } catch (err) {
+      } catch {
         // Silently capture error
       }
     }

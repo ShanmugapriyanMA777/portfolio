@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
-import { Search, Eye, Heart, Download, ExternalLink, Github, ArrowRight, Bookmark } from "lucide-react";
+import { Search, Eye, Heart, ArrowRight, Bookmark } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Project } from "@/lib/mockData";
 import { db } from "@/lib/db";
@@ -12,7 +12,6 @@ export default function Projects() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortBy, setSortBy] = useState("default");
-  const [loading, setLoading] = useState(true);
   
   // Local interaction states for likes and bookmarks
   const [likedProjects, setLikedProjects] = useState<Record<string, boolean>>({});
@@ -26,8 +25,6 @@ export default function Projects() {
         setProjects(data);
       } catch (err) {
         console.error("Error loading projects:", err);
-      } finally {
-        setLoading(false);
       }
     }
     loadProjects();
@@ -89,7 +86,7 @@ export default function Projects() {
     }
 
     return result;
-  }, [searchQuery, selectedCategory, sortBy, projectStats]);
+  }, [searchQuery, selectedCategory, sortBy, projectStats, projects]);
 
   const getLikesCount = (project: Project) => {
     return projectStats[project.id]?.likes ?? project.likes;

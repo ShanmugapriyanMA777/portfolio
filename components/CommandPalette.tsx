@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Search, FileText, Code, Award, ExternalLink, Globe, BookOpen, MessageSquare, ArrowRight } from "lucide-react";
+import { Search, FileText, Code, Award, Globe, BookOpen, MessageSquare, ArrowRight } from "lucide-react";
 import { mockProjects, mockCertificates, mockBlogs } from "@/lib/mockData";
 
 export default function CommandPalette() {

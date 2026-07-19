@@ -11,7 +11,6 @@ export default function About() {
   const [profile, setProfile] = useState<Profile>(mockProfile);
   const [experiences, setExperiences] = useState<Experience[]>(mockExperience);
   const [educations, setEducations] = useState<Education[]>(mockEducation);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadAboutData() {
@@ -26,8 +25,6 @@ export default function About() {
         if (eduData) setEducations(eduData);
       } catch (err) {
         console.error("Error loading about data:", err);
-      } finally {
-        setLoading(false);
       }
     }
     loadAboutData();
@@ -145,7 +142,7 @@ export default function About() {
             </div>
 
             <div className="relative border-l border-white/5 pl-6 ml-2 flex flex-col gap-8">
-              {experiences.map((exp, idx) => (
+              {experiences.map((exp) => (
                 <div key={exp.id} className="relative group">
                   {/* Timeline dot */}
                   <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-accent border-2 border-[#050505] group-hover:scale-125 transition-transform" />

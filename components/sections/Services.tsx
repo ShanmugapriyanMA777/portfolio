@@ -30,7 +30,6 @@ const getServiceGlow = (iconName: string) => {
 
 export default function Services() {
   const [services, setServices] = useState<Service[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadServices() {
@@ -39,8 +38,6 @@ export default function Services() {
         setServices(data);
       } catch (err) {
         console.error("Error loading services:", err);
-      } finally {
-        setLoading(false);
       }
     }
     loadServices();
@@ -94,11 +91,7 @@ export default function Services() {
                   {ser.name}
                 </h3>
                 
-                {/* Price block */}
-                <div className="my-5 flex items-baseline gap-1">
-                  <span className="text-2xl font-extrabold text-white font-heading">{ser.price_range.split(" - ")[0]}</span>
-                  <span className="text-xs text-gray-500 font-bold">base rate</span>
-                </div>
+
 
                 <p className="text-xs text-gray-400 leading-relaxed mb-6">
                   {ser.description}

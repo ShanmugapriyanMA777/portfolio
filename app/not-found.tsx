@@ -29,7 +29,7 @@ export default function NotFound() {
             <Sparkles className="w-4 h-4 text-accent" />
           </h2>
           <p className="text-xs text-gray-400 max-w-xs mx-auto leading-relaxed mt-3">
-            The requested routing path does not match any index coordinates in Shanmugapriyan's portfolio core.
+            The requested routing path does not match any index coordinates in Shanmugapriyan&apos;s portfolio core.
           </p>
         </div>
 
