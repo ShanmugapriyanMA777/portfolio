@@ -60,12 +60,35 @@ export default function About() {
                 </div>
                 <h3 className="font-heading font-bold text-lg text-white">My Story</h3>
               </div>
-              <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
-                I am a dedicated software researcher and developer based in Tamil Nadu, India. From early in my computing journey, I was drawn to the intersection of data science and user interface designs—bridging the gap between numerical predictions and fluid user screens.
-              </p>
-              <p className="text-gray-400 text-sm leading-relaxed">
-                Whether deploying neural networks on mobile device endpoints, writing DAX equations to report revenue flows, or compiling reactive Next.js full-stack APIs, I emphasize code cleanliness, low operational latency, and visual aesthetics.
-              </p>
+              <div className="space-y-4 text-gray-300 text-sm leading-relaxed text-left">
+                <p>
+                  Hi, I&apos;m <strong className="text-white">Shanmugapriyan</strong>.
+                </p>
+                <p>
+                  My journey into technology began with a simple curiosity: <span className="italic text-gray-400">&ldquo;How can AI solve real-world problems?&rdquo;</span> That question eventually became my passion.
+                </p>
+                <p>
+                  Instead of only learning programming languages, I focused on building solutions that could make a real impact. Every project became an opportunity to learn something new—whether it was artificial intelligence, web development, automation, cloud technologies, or user experience design.
+                </p>
+                <p>
+                  Over time, I developed projects such as AI-powered interview systems, coding assistants, accessibility solutions for visually impaired users, sign language translation concepts, healthcare applications, and intelligent business platforms. Each project taught me how to transform an idea into a working product by combining design, development, and AI.
+                </p>
+                <p>
+                  I enjoy working across the full development stack—from creating intuitive user interfaces to building scalable backends and integrating machine learning models. I constantly explore emerging technologies because I believe innovation comes from continuous learning and experimentation.
+                </p>
+                <p>
+                  For me, coding is more than writing software. It is about solving meaningful problems, creating accessible technology, and building products that improve people&apos;s lives.
+                </p>
+                <p>
+                  My goal is to become an AI engineer and entrepreneur who develops intelligent products used by millions of people around the world. Every project I build is another step toward that vision.
+                </p>
+                <p>
+                  When I&apos;m not coding, you&apos;ll usually find me researching new AI technologies, participating in hackathons, improving my technical skills, or turning ambitious ideas into reality.
+                </p>
+                <p className="font-heading font-extrabold text-primary uppercase tracking-widest pt-2">
+                  &ldquo;Dream. Build. Learn. Repeat.&rdquo;
+                </p>
+              </div>
             </div>
 
             <div className="mt-8 pt-6 border-t border-white/5 grid grid-cols-2 gap-4">
@@ -106,11 +129,7 @@ export default function About() {
                   <span className="text-gray-400">Education:</span>
                   <span className="text-white font-medium ml-auto">B.E. CSE</span>
                 </div>
-                <div className="flex items-center gap-3 text-sm">
-                  <Heart className="w-4 h-4 text-red-400" />
-                  <span className="text-gray-400">Interests:</span>
-                  <span className="text-white font-medium ml-auto">Biometrics, AI Edge</span>
-                </div>
+
               </div>
             </div>
 

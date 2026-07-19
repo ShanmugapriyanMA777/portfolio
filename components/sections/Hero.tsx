@@ -96,13 +96,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div>
-                <h4 className="text-[10px] font-bold text-gray-500 uppercase tracking-widest flex items-center gap-1.5">
-                  <Award className="w-3.5 h-3.5 text-primary" /> Key Achievements
-                </h4>
-                <p className="text-xs text-white font-semibold mt-1">GDSC Hackathon Winner (1st)</p>
-                <span className="text-[10px] text-gray-400 font-semibold">Gold Elite Candidate NPTEL (Top 1%)</span>
-              </div>
+
             </div>
 
           </div>
