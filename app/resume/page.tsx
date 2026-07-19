@@ -17,7 +17,7 @@ export default function ResumePage() {
   useEffect(() => {
     const generateQr = async () => {
       try {
-        const url = await QRCode.toDataURL(window.location.origin + mockProfile.resume_url);
+        const url = await QRCode.toDataURL(window.location.href);
         setQrCodeUrl(url);
       } catch (err) {
         console.error("QR Code generation error:", err);

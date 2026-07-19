@@ -10,9 +10,9 @@ VALUES (
     '/images/profile.jpg',
     '/resume.pdf',
     'mashanmugapriyan777@gmail.com',
-    '+91 98765 43210',
+    '+91 89734 51246',
     'Tamil Nadu, India',
-    'https://wa.me/919876543210',
+    'https://wa.me/918973451246',
     'https://calendly.com/shanmugapriyan',
     'ShanmugapriyanMA777',
     'shanmugapriyan_leetcode'

@@ -222,25 +222,35 @@ export const db = {
     const found = mock.mockBlogs.find((b) => b.slug === slug);
     return found || null;
   },
-
   async sendMessage(name: string, email: string, subject: string, message: string): Promise<{ success: boolean; error?: string }> {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, subject, message }),
+      });
+      const data = await response.json();
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Failed to send email');
+      }
+    } catch (err) {
+      console.warn('Resend API send failed, falling back to db insert:', err);
+    }
+
     if (isSupabaseConfigured && supabase) {
       try {
-        const { error } = await supabase
+        await supabase
           .from('messages')
           .insert([{ name, email, subject, message }]);
-        if (!error) return { success: true };
-        console.warn('Supabase message insert failed, simulating success:', error);
       } catch (err) {
-        console.error(err);
-        return { success: false, error: (err as Error).message };
+        console.error('Supabase message insert failed:', err);
       }
     }
-    await delay(1000); // Simulate network roundtrip
-    console.log(`Mock Message Sent:\nFrom: ${name} (${email})\nSubject: ${subject}\nMessage: ${message}`);
+
     return { success: true };
   },
-
   async logVisitor(pagePath: string, country = 'Localhost', city = 'Localhost', userAgent = 'Browser'): Promise<void> {
     if (isSupabaseConfigured && supabase) {
       try {
